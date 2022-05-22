@@ -1,4 +1,4 @@
-import { doc } from "prettier";
+// import { doc } from "prettier";
 import data from "./items.json" assert { type: "json" };
 
 // for (let index = 0; index < data.length; index++) {
@@ -60,15 +60,15 @@ populate(data, array);
 document.addEventListener("keydown", function (event) {
 	let temp = document.querySelectorAll("li");
 	if (event.keyCode === 40) {
-		temp[currentIndex].removeAttribute("active-item");
+		temp[currentIndex].classList.remove("active-item");
 		currentIndex = (currentIndex + 1) % data.length;
 		document.getElementById("mainimage").src = array[currentIndex];
 		// selector item will also change
-		temp[currentIndex].setAttribute("active-item");
+		temp[currentIndex].classList.add("active-item");
 	} else if (event.keyCode === 38) {
-		temp[currentIndex].removeAttribute("active-item");
+		temp[currentIndex].classList.remove("active-item");
 		currentIndex = (currentIndex - 1 + data.length) % data.length;
 		document.getElementById("mainimage").src = array[currentIndex];
-		temp[currentIndex].setAttribute("active-item");
+		temp[currentIndex].classList.add("active-item");
 	}
 });
