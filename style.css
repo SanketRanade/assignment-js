@@ -1,11 +1,17 @@
 .section {
-	/* border: 1px solid black; */
+	border: 1px solid red;
 	margin: 1rem;
 	padding: 2rem 2rem;
 	text-align: center;
-	/* align-items: center; */
 }
-section > ul > li {
+
+ul {
+	display: inline-block;
+	text-align: center;
+	margin: 1rem;
+}
+
+section > ul > li > button {
 	display: inline-block;
 	/* border: 1px solid red; */
 	/* padding: 5px; */
@@ -16,7 +22,7 @@ section > ul > li {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 1; /* number of lines to show */
+	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 }
 
@@ -26,12 +32,37 @@ section > ul > li {
 	/* height: 100px; */
 }
 
-img {
-	width: 300px;
-	/* height: 200px; */
-	/* max-height: 1000px; */
+/* li::before {
+	background-image: url(sprinklr.png);
+} */
+
+li::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 2em;
+	height: 2em;
+	background-size: 100%;
+	margin-inline-end: 0.5em;
+	opacity: 0.8;
 }
 
-/* ul.li {
-	list-style-image: url();
+img {
+	display: inline-block;
+	width: 300px;
+}
+
+/* div {
+	text-align: center;
+}
+
+div span {
+	display: inline-block;
+	border: 1px solid blue;
+	text-align: left;
+	width: 300px;
+}
+img {
+	display: inline-block;
+	width: 300px;
 } */
