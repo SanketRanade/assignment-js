@@ -10,7 +10,7 @@ import data from "./items.json" assert { type: "json" };
 let currentIndex = 0;
 
 function populate(obj, array) {
-	const section = document.querySelector("section");
+	const section = document.querySelector("div");
 	const myList = document.createElement("ul");
 	for (let index = 0; index < obj.length; index++) {
 		const listItem = document.createElement("li");
@@ -28,8 +28,15 @@ function populate(obj, array) {
 
 		// function to change image on click
 		listItem.addEventListener("click", function () {
+			let temp = document.querySelectorAll("li");
+			let imgSourceBefore = document.getElementById("mainimage").src;
+			temp[array.indexOf(imgSourceBefore)].classList.remove(
+				"active-item"
+			);
 			document.getElementById("mainimage").src = imageURL;
+
 			currentIndex = index;
+			listItem.classList.add("active-item");
 		});
 
 		// listItem.style.backgroundImage = "url(" + imageURL + ")";
