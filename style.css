@@ -7,11 +7,12 @@
 
 ul {
 	display: inline-block;
+	margin-top: 10px;
 	text-align: center;
 	margin: 1rem;
 }
 
-section > ul > li > button {
+section > ul > li {
 	display: inline-block;
 	/* border: 1px solid red; */
 	/* padding: 5px; */
@@ -24,6 +25,10 @@ section > ul > li > button {
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
+}
+
+.active-item {
+	background-color: aqua;
 }
 
 .child-right {
@@ -40,8 +45,8 @@ li::before {
 	content: "";
 	display: inline-block;
 	vertical-align: middle;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
 	background-size: 100%;
 	margin-inline-end: 0.5em;
 	opacity: 0.8;
