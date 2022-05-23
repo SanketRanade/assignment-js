@@ -44,6 +44,12 @@ img {
 	vertical-align: middle;
 }
 
+.thumbnail-image {
+	width: 3em;
+	height: 3em;
+	vertical-align: middle;
+}
+
 /* figcaption {
 	width: 550px;
 	align-items: center;

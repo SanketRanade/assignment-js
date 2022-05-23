@@ -14,6 +14,7 @@ function populate(obj, array) {
 	const myList = document.createElement("ul");
 	for (let index = 0; index < obj.length; index++) {
 		const listItem = document.createElement("li");
+
 		const buttonItem = document.createElement("button");
 		// listItem.style.cssText = "listStyleImage:url(sprinklr.png)";
 		// listItem.style.listStyleImage = url(sprinklr.png);
@@ -21,8 +22,16 @@ function populate(obj, array) {
 		const imageName = obj[index]["title"];
 		const imageURL = obj[index]["previewImage"];
 		array.push(imageURL);
+		array_title.push(imageName);
+
+		// const thumbnailImage = document.createElement("img");
+		// thumbnailImage.src = imageURL;
+		// thumbnailImage.alt = "hi1234";
+		// thumbnailImage.classList.add("thumbnail-image");
+		// listItem.appendChild(thumbnailImage);
 
 		listItem.textContent = imageName;
+
 		// buttonItem.setAttribute("id", imageURL);
 		// listItem.style.backgroundImage = "url(" + imageURL + ")";
 
@@ -38,12 +47,13 @@ function populate(obj, array) {
 			currentIndex = index;
 			listItem.classList.add("active-item");
 			const figCaption = document.querySelector("figcaption");
-			figCaption.textContent = listItem.innerHTML;
+			figCaption.textContent = array_title[currentIndex];
 		});
 
 		// listItem.style.backgroundImage = "url(" + imageURL + ")";
 
 		// listItem.appendChild(buttonItem);
+
 		myList.appendChild(listItem);
 	}
 	// myList.style.cssText = "listStyleImage:url(sprinklr.png)";
@@ -65,7 +75,14 @@ function populate(obj, array) {
 // }
 
 const array = [];
+const array_title = [];
 populate(data, array);
+
+let liItemList = document.querySelectorAll("li");
+
+for (let index = 0; index < array.length; index++) {
+	truncateText(index);
+}
 
 // function for arrow key navigation
 document.addEventListener("keydown", function (event) {
@@ -78,7 +95,7 @@ document.addEventListener("keydown", function (event) {
 		temp[currentIndex].classList.add("active-item");
 
 		const figCaption = document.querySelector("figcaption");
-		figCaption.textContent = temp[currentIndex].innerHTML;
+		figCaption.textContent = array_title[currentIndex];
 	} else if (event.keyCode === 38) {
 		temp[currentIndex].classList.remove("active-item");
 		currentIndex = (currentIndex - 1 + data.length) % data.length;
@@ -86,7 +103,7 @@ document.addEventListener("keydown", function (event) {
 		temp[currentIndex].classList.add("active-item");
 
 		const figCaption = document.querySelector("figcaption");
-		figCaption.textContent = temp[currentIndex].innerHTML;
+		figCaption.textContent = array_title[currentIndex];
 	}
 });
 
@@ -99,6 +116,10 @@ figcapt_op.addEventListener("keypress", function (event) {
 		event.preventDefault();
 		let figCapt = document.querySelector("figcaption");
 		temp[currentIndex].innerHTML = figCapt.innerHTML;
+		array_title[currentIndex] = figCapt.innerHTML;
+
+		truncateText(currentIndex);
+		// console.log(array_title[currentIndex]);
 	}
 });
 
@@ -110,7 +131,23 @@ document.addEventListener("click", function (event) {
 	}
 
 	let temp = document.querySelectorAll("li");
-	event.preventDefault();
+	// event.preventDefault();
 	let figCapt = document.querySelector("figcaption");
 	temp[currentIndex].innerHTML = figCapt.innerHTML;
+	array_title[currentIndex] = figCapt.innerHTML;
+
+	truncateText(currentIndex);
 });
+
+// function to truncate text
+function truncateText(index) {
+	let liItem = document.querySelectorAll("li");
+	let str = array_title[index];
+	if (str.length > 30) {
+		let subStr =
+			str.substring(0, 15) +
+			"..." +
+			str.substring(str.length - 15, str.length);
+		liItem[index].innerHTML = subStr;
+	}
+}
