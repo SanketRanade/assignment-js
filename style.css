@@ -4,13 +4,18 @@ div {
 	/* display: inline-block; */
 }
 
-ul figure {
+ul {
 	display: inline-block;
 	/* border: solid blue; */
 	/* position: relative; */
-	/* margin: 10px;
-	padding: 20px; */
+	margin: 10px;
+	padding: 20px;
 	text-align: center;
+}
+
+figure {
+	display: inline-block;
+	vertical-align: top;
 }
 
 div > ul > li {
@@ -36,13 +41,14 @@ img {
 	object-fit: cover;
 	cursor: pointer;
 	margin: 10px;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
-figcaption {
+/* figcaption {
 	width: 550px;
-	display: inline-block;
-}
+	align-items: center;
+
+} */
 
 .active-item {
 	background-color: #007fff;
