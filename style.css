@@ -1,13 +1,9 @@
 div {
-	/* border: 1px solid red; */
 	text-align: center;
-	/* display: inline-block; */
 }
 
 ul {
 	display: inline-block;
-	/* border: solid blue; */
-	/* position: relative; */
 	margin: 10px;
 	padding: 20px;
 	text-align: center;
@@ -20,8 +16,6 @@ figure {
 
 div > ul > li {
 	display: inline-block;
-	/* border: 1px solid red; */
-	/* padding: 5px; */
 	text-align: left;
 	width: 300px;
 
@@ -35,7 +29,6 @@ div > ul > li {
 
 img {
 	display: inline-block;
-	/* width: 500px; */
 	width: 550px;
 	height: 750px;
 	object-fit: cover;
@@ -50,20 +43,10 @@ img {
 	vertical-align: middle;
 }
 
-/* figcaption {
-	width: 550px;
-	align-items: center;
-
-} */
-
 .active-item {
 	background-color: #007fff;
 	color: white;
 }
-
-/* li::before {
-	background-image: url(sprinklr.png);
-} */
 
 li::before {
 	content: "";
@@ -75,18 +58,3 @@ li::before {
 	margin-inline-end: 0.5em;
 	opacity: 0.8;
 }
-
-/* div {
-	text-align: center;
-}
-
-div span {
-	display: inline-block;
-	border: 1px solid blue;
-	text-align: left;
-	width: 300px;
-}
-img {
-	display: inline-block;
-	width: 300px;
-} */
